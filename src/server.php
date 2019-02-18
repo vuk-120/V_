@@ -2,7 +2,7 @@
 <?php 
 	define('DB_SERVER','localhost');
 	define('DB_USERNAME','root');
-	define('DB_PASSWORD','root');
+	define('DB_PASSWORD','');
 	define('DB_DATABASE','szoftmenprojekt');
 
 	$last_name="";
@@ -113,6 +113,39 @@
 				array_push($errors, "Incorrect password or e-mail");
 			}
 		}
+	}
+
+	//write post
+	if(isset($_POST['publish']))
+	{
+		$id = "";
+		$title="";
+		$text="";
+		$oppo="";
+
+		$sql = "SELECT count(id) AS total FROM post;";
+		$query = mysqli_query($db, $sql);
+		while($rows = mysqli_fetch_array($query))
+		{
+			$id = $rows['total'];
+		}
+		
+		$newId = $id + 1;
+
+		$title = mysqli_real_escape_string($db, $_POST['title']);
+		$text = mysqli_real_escape_string($db, $_POST['post']);
+
+		$oppo=$_POST['selectOption'];
+
+		$upload="INSERT INTO post(id, title, text, opportunity) VALUES ('$newId', '$title', '$text', '$oppo')";
+		mysqli_query($db, $upload);
+		
+		$date = date('Y-m-d H:i:s');
+		$user = $_SESSION['name'];
+		$upload2="INSERT INTO share(userId, postId, comId, date, likeId) VALUES ('$user', '$newId', NULL, '$date','0')";
+		mysqli_query($db, $upload2);	
+
+					
 	}
 	
  ?>
