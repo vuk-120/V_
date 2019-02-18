@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1:3306
--- Létrehozás ideje: 2019. Feb 09. 16:37
+-- Létrehozás ideje: 2019. Feb 17. 17:57
 -- Kiszolgáló verziója: 5.7.19
 -- PHP verzió: 5.6.31
 
@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Adatbázis: `szoftmenprojekt`
 --
-CREATE DATABASE IF NOT EXISTS `szoftmenprojekt` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `szoftmenprojekt` DEFAULT CHARACTER SET utf8 COLLATE utf8_hungarian_ci;
 USE `szoftmenprojekt`;
 
 -- --------------------------------------------------------
@@ -33,9 +33,9 @@ USE `szoftmenprojekt`;
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE IF NOT EXISTS `comment` (
   `id` int(6) NOT NULL AUTO_INCREMENT,
-  `text` varchar(256) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  `text` varchar(256) COLLATE utf8_hungarian_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+);
 
 --
 -- A tábla adatainak kiíratása `comment`
@@ -74,20 +74,20 @@ INSERT INTO `comment` (`id`, `text`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `like`
+-- Tábla szerkezet ehhez a táblához `likes`
 --
 
-DROP TABLE IF EXISTS `like`;
-CREATE TABLE IF NOT EXISTS `like` (
+DROP TABLE IF EXISTS `likes`;
+CREATE TABLE IF NOT EXISTS `likes` (
   `id` int(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+);
 
 --
--- A tábla adatainak kiíratása `like`
+-- A tábla adatainak kiíratása `likes`
 --
 
-INSERT INTO `like` (`id`) VALUES
+INSERT INTO `likes` (`id`) VALUES
 (1),
 (2),
 (3),
@@ -107,44 +107,46 @@ INSERT INTO `like` (`id`) VALUES
 DROP TABLE IF EXISTS `post`;
 CREATE TABLE IF NOT EXISTS `post` (
   `id` int(6) NOT NULL,
+  `title` varchar(250) COLLATE utf8_hungarian_ci NOT NULL,
   `text` varchar(256) COLLATE utf8_hungarian_ci DEFAULT NULL,
+  `opportunity` varchar(10) COLLATE utf8_hungarian_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+);
 
 --
 -- A tábla adatainak kiíratása `post`
 --
 
-INSERT INTO `post` (`id`, `text`) VALUES
-(18, '</th>'),
-(19, '<td>'),
-(20, 'de nem igazán tudom, hogy minek kéne bele kerülnie….'),
-(21, '</td>'),
-(22, '<td>'),
-(23, 'bár ennek a szerkezetnek így semmi értelme sincs…'),
-(24, '</br>'),
-(25, 'kivéve mondjuk, ha horizontális táblázatot készít az ember….'),
-(26, '</td>'),
-(27, '</tr>'),
-(28, '</table>'),
-(29, 'na talán ennyi egyenlőre elég lesz'),
-(1, 'ez az első posztom'),
-(2, 'kíváncsian várom hogyan alakul a táblaszerkezet'),
-(3, 'remélem úgy fog működni, ahogy én azt szeretném'),
-(4, 'jó lenne valami érdekeset kitalálni végre'),
-(5, 'mi a halált írjak ebbe a táblába még'),
-(6, 'semmi ötletem sincs'),
-(7, 'meghalni nincs idő, így élni kell'),
-(8, 'sose lesz ennek vége'),
-(9, 'valami értelmeset is igazán írhatnék végre ebbe a dologba'),
-(10, 'nemtudom mit lehetne még'),
-(11, 'kéne legalább 20 rekord, hogy mormálisan lehessen tesztelni'),
-(12, 'a legkézenfekvőbbet még nem írtam…'),
-(13, 'Helló World!'),
-(14, '<table class=\"valami\" id=\"semmi\">'),
-(15, '<tr class=\"center\">'),
-(16, '<th>'),
-(17, 'ez lesz a táblázat egyik fő mezője…');
+INSERT INTO `post` (`id`, `title`, `text`, `opportunity`) VALUES
+(18, 'valami', '</th>', 'V_main'),
+(19, 'mert miért ne', '<td>', 'V_java'),
+(20, 'ez', 'de nem igazán tudom, hogy minek kéne bele kerülnie….', 'V_python'),
+(21, 'ez igen', '</td>', 'V_AI'),
+(22, 'ez nem maradhat', '<td>', 'V_main'),
+(23, 'nemtudom', 'bár ennek a szerkezetnek így semmi értelme sincs…', 'V_java'),
+(24, 'valami értelmes is lehetne', '</br>', 'V_python'),
+(25, 'nem kell', 'kivéve mondjuk, ha horizontális táblázatot készít az ember….', 'V_AI'),
+(26, 'ez megint egy html', '</td>', 'V_main'),
+(27, 'na jó', '</tr>', 'V_java'),
+(28, 'ideje', '</table>', 'V_python'),
+(29, 'időt', 'na talán ennyi egyenlőre elég lesz', 'V_AI'),
+(1, 'spórolni', 'ez az első posztom', 'V_main'),
+(2, 'hjkl', 'kíváncsian várom hogyan alakul a táblaszerkezet', 'V_java'),
+(3, 'hiuobnj', 'remélem úgy fog működni, ahogy én azt szeretném', 'V_python'),
+(4, 'nubijlkbni', 'jó lenne valami érdekeset kitalálni végre', 'V_AI'),
+(5, 'hbuniljh', 'mi a halált írjak ebbe a táblába még', 'V_main'),
+(6, 'hiunljh', 'semmi ötletem sincs', 'V_java'),
+(7, 'huiolh', 'meghalni nincs idő, így élni kell', 'V_python'),
+(8, 'hiuoljk', 'sose lesz ennek vége', 'V_AI'),
+(9, 'uhiklh', 'valami értelmeset is igazán írhatnék végre ebbe a dologba', 'V_main'),
+(10, 'huilkh', 'nemtudom mit lehetne még', 'V_java'),
+(11, 'huiklj', 'kéne legalább 20 rekord, hogy mormálisan lehessen tesztelni', 'V_python'),
+(12, 'huikljh', 'a legkézenfekvőbbet még nem írtam…', 'V_AI'),
+(13, 'huikljh', 'Helló World!', 'V_main'),
+(14, 'üres', '<table class=\"valami\" id=\"semmi\">', 'V_AI'),
+(15, 'mert akkor', '<tr class=\"center\">', 'V_java'),
+(16, 'ki tudja mi fog ', '<th>', 'V_python'),
+(17, 'történni', 'ez lesz a táblázat egyik fő mezője…', 'V_main');
 
 -- --------------------------------------------------------
 
@@ -154,12 +156,16 @@ INSERT INTO `post` (`id`, `text`) VALUES
 
 DROP TABLE IF EXISTS `share`;
 CREATE TABLE IF NOT EXISTS `share` (
-  `userId` varchar(256) COLLATE utf8_hungarian_ci DEFAULT NULL,
+  `userId` varchar(256) DEFAULT NULL,
   `postId` int(6) DEFAULT NULL,
   `comId` int(6) DEFAULT NULL,
-  `date` date DEFAULT NULL,
-  `likeId` int(6) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+  `date` date NOT NULL,
+  `likeId` int(6) DEFAULT NULL,
+  KEY `userId` (`userId`),
+  KEY `postId` (`postId`),
+  KEY `comId` (`comId`),
+  KEY `likeId` (`likeId`)
+);
 
 --
 -- A tábla adatainak kiíratása `share`
@@ -199,28 +205,29 @@ CREATE TABLE IF NOT EXISTS `user` (
   `userName` varchar(256) COLLATE utf8_hungarian_ci NOT NULL,
   `eMail` varchar(256) COLLATE utf8_hungarian_ci DEFAULT NULL,
   `password` varchar(256) COLLATE utf8_hungarian_ci DEFAULT NULL,
-  `age` int(4) DEFAULT NULL,
   `lastName` varchar(256) COLLATE utf8_hungarian_ci DEFAULT NULL,
   `firstName` varchar(256) COLLATE utf8_hungarian_ci DEFAULT NULL,
+  `profilePictures` varchar(256) COLLATE utf8_hungarian_ci NOT NULL,
   PRIMARY KEY (`userName`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+);
 
 --
 -- A tábla adatainak kiíratása `user`
 --
 
-INSERT INTO `user` (`userName`, `eMail`, `password`, `age`, `lastName`, `firstName`) VALUES
-('kristof', 'kristof@nemtudom.org', 'sdgfds', 36, 'Kristóf', 'Abért'),
-('balazs02', 'balazska@gmail.com', 'graeio', 22, 'Balázs', 'Tóth'),
-('skyrim', 'kiss.erzsi@indamail.hu', 'gafdse', 20, 'Erzsébet', 'Kiss'),
-('linuxProf', 'house@linux.info', 'gfaeghfd', 47, 'Gábor', 'Házi'),
-('igazolas032', 'adatbazis@microsoft.com', 'gfdserds', 34, 'Beáta', 'Petőné'),
-('valaki', 'adsgfda@gfadfs.hu', 'asdf', 12, 'Vala', 'Ki'),
-('senki', 'fdssgfds@fdsgsf.com', 'qwer', 21, 'Sen', 'Ki'),
-('nemtom', 'gfdgfhtr@gsfdg.org', 'ghjk', 65, 'Nem', 'Tudom'),
-('bence', 'bence@gmail.com', 'gasdf', 34, 'Bence', 'Kiss'),
-('anna', 'anna@hotmail.hu', 'hfdsg', 21, 'Anna', 'Balogh'),
-('kkgigiioo', 'kassai.gigi@gmail.com', '912ec803b2ce49e4a541068d495ab570', 23, 'Kassai', 'KristÃ³f');
+INSERT INTO `user` (`userName`, `eMail`, `password`, `lastName`, `firstName`, `profilePictures`) VALUES
+('kristof', 'kristof@nemtudom.org', 'sdgfds', 'Kristóf', 'Abért', ''),
+('balazs02', 'balazska@gmail.com', 'graeio', 'Balázs', 'Tóth', ''),
+('skyrim', 'kiss.erzsi@indamail.hu', 'gafdse', 'Erzsébet', 'Kiss', ''),
+('linuxProf', 'house@linux.info', 'gfaeghfd', 'Gábor', 'Házi', ''),
+('igazolas032', 'adatbazis@microsoft.com', 'gfdserds', 'Beáta', 'Petőné', ''),
+('valaki', 'adsgfda@gfadfs.hu', 'asdf', 'Vala', 'Ki', ''),
+('senki', 'fdssgfds@fdsgsf.com', 'qwer', 'Sen', 'Ki', ''),
+('nemtom', 'gfdgfhtr@gsfdg.org', 'ghjk', 'Nem', 'Tudom', ''),
+('bence', 'bence@gmail.com', 'gasdf', 'Bence', 'Kiss', ''),
+('anna', 'anna@hotmail.hu', 'hfdsg', 'Anna', 'Balogh', ''),
+('kkgigiioo', 'kassai.gigi@gmail.com', '912ec803b2ce49e4a541068d495ab570', 'Kassai', 'KristÃ³f', '../profilePics/maxresdefault.jpg'),
+('csana23', 'csanaki.ricsi@gmail.com', '4fded1464736e77865df232cbcb4cd19', 'Csanaki', 'Richard', '../ProfilePics/566f242d1f00002d00e9bb83.jpeg');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
