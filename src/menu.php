@@ -25,7 +25,7 @@
 											<a href='profile.php?explore=python'>V_python</a>
 										</li>
 										<li>
-											<a href='profile.php?explore=ai'>V_AI</a>
+											<a href='profile.php?explore=AI'>V_AI</a>
 										</li>
 									</ul>
 								</li>
@@ -41,7 +41,7 @@
 											<a href='writepost.php'>Write post</a>
 										</li>
 										<li>
-											Help
+											<a href='help.php'>Help</a>
 										</li>
 										<li>
 											<a href='logOffProcess.php'>Sign out</a>
