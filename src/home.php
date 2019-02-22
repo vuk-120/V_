@@ -1,5 +1,6 @@
 <?php 
 	session_start();
+	include_once("server.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,6 +16,33 @@
 	</head>
 	<body>
 		<?php include("menu.php"); ?>
+
+		<?php 
+			mysqli_set_charset($db, 'utf8');
+			$sql = "SELECT * FROM user, share, post WHERE user.userName=share.userId AND post.id=share.postId";
+			$result = mysqli_query($db, $sql);
+			while($rows = mysqli_fetch_array($result))
+			{
+				echo
+				"
+					<div class='main_frame'>
+						<div class='title'>
+							oppu: {$rows['opportunity']}
+						</div>
+						<div class='user'>
+							username: {$rows['userName']}
+						</div>
+						<div class='title'>
+							title: {$rows['title']}
+						</div>
+						<div class='text'>
+							text: {$rows['text']}
+						</div>
+					</div>
+				";
+			}	
+		?>
+
 		<?php include("footer.php"); ?>
 	</body>
 </html>
