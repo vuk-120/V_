@@ -19,13 +19,13 @@
 									<ul style=''>
 				
 										<li>
-											<a href='profile.php?explore=java'>V_java</a>
+											<a href='home.php?explore=java'>V_java</a>
 										</li>
 										<li>
-											<a href='profile.php?explore=python'>V_python</a>
+											<a href='home.php?explore=python'>V_python</a>
 										</li>
 										<li>
-											<a href='profile.php?explore=AI'>V_AI</a>
+											<a href='home.php?explore=AI'>V_AI</a>
 										</li>
 									</ul>
 								</li>

@@ -9,7 +9,7 @@
 		<title>V_</title>
 		<meta http-equiv="Content-Type" content="text/php; charset=utf-8" />
 		<meta lang="en">
-		<link rel="stylesheet" type="text/css" href="/css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
 	</head>
 	<body>
 

@@ -1,5 +1,6 @@
 <?php 
 	session_start();
+	include_once("server.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,6 +16,124 @@
 	</head>
 	<body>
 		<?php include("menu.php"); ?>
+
+		<?php 
+						
+			$url = $_SERVER['REQUEST_URI'];
+			$validURL = str_replace("&","&amp;",$url);
+			$first = substr($validURL, strrpos($validURL, '?')+1);
+
+			if($first == "explore=AI")
+			{
+				mysqli_set_charset($db, 'utf8');
+				$sql = "SELECT * FROM user, share, post WHERE user.userName=share.userId AND post.id=share.postId AND post.opportunity LIKE 'V_AI'";
+				$result = mysqli_query($db, $sql);
+
+				while($rows = mysqli_fetch_array($result))
+				{
+					echo
+					"
+						<div class='main_frame'>
+							<div class='title'>
+								{$rows['opportunity']}
+							</div>
+							<div class='user'>
+								{$rows['userName']}
+							</div>
+							<div class='title'>
+								{$rows['title']}
+							</div>
+							<div class='text'>
+								{$rows['text']}
+							</div>
+						</div>
+					";
+				}
+			}
+			else if($first == "explore=java")
+			{
+				mysqli_set_charset($db, 'utf8');
+				$sql = "SELECT * FROM user, share, post WHERE user.userName=share.userId AND post.id=share.postId AND post.opportunity LIKE 'V_java'";
+				$result = mysqli_query($db, $sql);
+
+				while($rows = mysqli_fetch_array($result))
+				{
+					echo
+					"
+						<div class='main_frame'>
+							<div class='title'>
+								{$rows['opportunity']}
+							</div>
+							<div class='user'>
+								{$rows['userName']}
+							</div>
+							<div class='title'>
+								{$rows['title']}
+							</div>
+							<div class='text'>
+								{$rows['text']}
+							</div>
+						</div>
+					";
+				}
+			}
+			else if($first == "explore=python")
+			{
+				mysqli_set_charset($db, 'utf8');
+				$sql = "SELECT * FROM user, share, post WHERE user.userName=share.userId AND post.id=share.postId AND post.opportunity LIKE 'V_python'";
+				$result = mysqli_query($db, $sql);
+
+				while($rows = mysqli_fetch_array($result))
+				{
+					echo
+					"
+						<div class='main_frame'>
+							<div class='title'>
+								{$rows['opportunity']}
+							</div>
+							<div class='user'>
+								{$rows['userName']}
+							</div>
+							<div class='title'>
+								{$rows['title']}
+							</div>
+							<div class='text'>
+								{$rows['text']}
+							</div>
+						</div>
+					";
+				}
+			}
+			else
+			{
+				mysqli_set_charset($db, 'utf8');
+				$sql = "SELECT * FROM user, share, post WHERE user.userName=share.userId AND post.id=share.postId";
+				$result = mysqli_query($db, $sql);
+
+				while($rows = mysqli_fetch_array($result))
+				{
+					echo
+					"
+						<div class='main_frame'>
+							<div class='title'>
+								{$rows['opportunity']}
+							</div>
+							<div class='user'>
+								{$rows['userName']}
+							</div>
+							<div class='title'>
+								{$rows['title']}
+							</div>
+							<div class='text'>".
+								nl2br($rows['text']).
+							"
+							</div>
+						</div>
+					";
+				}
+			}	
+		?>
+
 		<?php include("footer.php"); ?>
 	</body>
 </html>
