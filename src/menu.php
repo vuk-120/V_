@@ -14,7 +14,7 @@
 							
 							<ul class='menuMiddle'>
 								<li>
-								<a href='profile.php?explore=main' style='padding-left: 15%; padding-top: 14%; padding-bottom: 10%;'>V_main
+								<a href='home.php' style='padding-left: 15%; padding-top: 14%; padding-bottom: 10%;'>V_main
 								<i class='fa fa-caret-down fa-2x' style='padding-left: 5%; padding-top: 10%;'></i></a>
 									<ul style=''>
 				
