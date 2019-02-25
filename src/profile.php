@@ -5,8 +5,28 @@
 	<title>Profile of <?php echo "{$_SESSION['name']}"; ?></title>
 	<meta charset="utf-8">
 	<meta lang="en">
+	<link rel="stylesheet" type="text/css" href="css/profile.css">
 </head>
 <body>
+
+	<?php
+        include_once('server.php');
+
+        $path = "";
+        $name = "";
+        $email = "";
+
+        $sql = "SELECT * FROM user WHERE userName LIKE '{$_SESSION['name']}'";
+        $result = mysqli_query($db, $sql);
+
+        while ($row = $result->fetch_assoc()) {
+            $path = $row['profilePictures'];
+            $name = $row['firstName'] . " " . $row['lastName'];
+            $email = $row['eMail'];
+        }
+
+        
+        ?>
 
 	<div class="profile_pic" align="center">
 	    <img src="<?php echo $path; ?>" id="profile_pic" class="image">

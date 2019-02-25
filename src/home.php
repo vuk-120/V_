@@ -34,18 +34,28 @@
 					echo
 					"
 						<div class='main_frame'>
-							<div class='title'>
-								{$rows['opportunity']}
+
+							<div class='top'>
+								<span class='cat'>
+									{$rows['opportunity']}
+								</span>
+								<span class='user'>
+									{$rows['userName']}
+								</span>
 							</div>
-							<div class='user'>
-								{$rows['userName']}
-							</div>
+
 							<div class='title'>
 								{$rows['title']}
 							</div>
-							<div class='text'>
-								{$rows['text']}
+							<div class='text'>".
+								nl2br($rows['text']).
+							"
 							</div>
+
+							<div class='comment'>
+								<a href='valami.php'>Comment</a>
+							</div>
+
 						</div>
 					";
 				}
@@ -61,18 +71,28 @@
 					echo
 					"
 						<div class='main_frame'>
-							<div class='title'>
-								{$rows['opportunity']}
+
+							<div class='top'>
+								<span class='cat'>
+									{$rows['opportunity']}
+								</span>
+								<span class='user'>
+									{$rows['userName']}
+								</span>
 							</div>
-							<div class='user'>
-								{$rows['userName']}
-							</div>
+
 							<div class='title'>
 								{$rows['title']}
 							</div>
-							<div class='text'>
-								{$rows['text']}
+							<div class='text'>".
+								nl2br($rows['text']).
+							"
 							</div>
+
+							<div class='comment'>
+								<a href='valami.php'>Comment</a>
+							</div>
+
 						</div>
 					";
 				}
@@ -88,18 +108,28 @@
 					echo
 					"
 						<div class='main_frame'>
-							<div class='title'>
-								{$rows['opportunity']}
+
+							<div class='top'>
+								<span class='cat'>
+									{$rows['opportunity']}
+								</span>
+								<span class='user'>
+									{$rows['userName']}
+								</span>
 							</div>
-							<div class='user'>
-								{$rows['userName']}
-							</div>
+
 							<div class='title'>
 								{$rows['title']}
 							</div>
-							<div class='text'>
-								{$rows['text']}
+							<div class='text'>".
+								nl2br($rows['text']).
+							"
 							</div>
+
+							<div class='comment'>
+								<a href='valami.php'>Comment</a>
+							</div>
+
 						</div>
 					";
 				}
@@ -115,12 +145,17 @@
 					echo
 					"
 						<div class='main_frame'>
-							<div class='title'>
-								{$rows['opportunity']}
+
+							<div class='top'>
+								<span class='cat'>
+									{$rows['opportunity']}
+								</span>
+								<span class='user'>
+									{$rows['userName']}
+								</span>
 							</div>
-							<div class='user'>
-								{$rows['userName']}
-							</div>
+
+
 							<div class='title'>
 								{$rows['title']}
 							</div>
@@ -128,6 +163,11 @@
 								nl2br($rows['text']).
 							"
 							</div>
+							
+							<div class='comment'>
+								<a href='valami.php'>Comment</a>
+							</div>
+
 						</div>
 					";
 				}
