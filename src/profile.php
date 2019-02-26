@@ -6,11 +6,14 @@
 	<meta charset="utf-8">
 	<meta lang="en">
 	<link rel="stylesheet" type="text/css" href="css/profile.css">
+	<link rel="stylesheet" type="text/css" href="css/menuBar.css">
 </head>
 <body>
 
 	<?php
         include_once('server.php');
+        include('menu.php');
+        include('footer.php');
 
         $path = "";
         $name = "";

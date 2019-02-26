@@ -12,6 +12,9 @@
 	$password_1="";
 	$password_2="";
 	$errors=array();
+	$target_dir = "";
+	$target_file = "";
+	$sql8 = "";
 	
 	$db=mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 	
@@ -161,7 +164,7 @@
 
 		$sql8 = "UPDATE user SET profilePictures='{$target_file}' WHERE userName='{$_SESSION['name']}'";
 
-		if (mysqli_query($link, $sql8)) {
+		if (mysqli_query($db, $sql8)) {
 			header('location: profile.php');
 		}
 		}
