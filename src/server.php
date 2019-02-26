@@ -159,7 +159,7 @@
 		$_FILES["real-file"]["tmp_name"],
 		$target_file);
 
-		$sql8 = "UPDATE users SET ProfilePic='{$target_file}' WHERE Username='{$_SESSION['userName']}'";
+		$sql8 = "UPDATE user SET profilePictures='{$target_file}' WHERE userName='{$_SESSION['name']}'";
 
 		if (mysqli_query($link, $sql8)) {
 			header('location: profile.php');
