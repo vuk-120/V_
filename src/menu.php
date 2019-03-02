@@ -2,6 +2,10 @@
 				<?php 
 					if((isset($_SESSION['success']) && $_SESSION['success'] == true))
 					{
+
+						$user_shit = $_SESSION['name'];
+						$sub_user_shit = substr($user_shit, 0, 1);
+
 						echo
 						"
 							<ul class='menuLeft''>
@@ -32,10 +36,11 @@
 							</ul> 
 
 							<ul class='menuRight'>
-								<li style='padding-top: 8%;'> {$_SESSION['name']}
-									<ul style='padding-right: 5%; font-size: 15px;'>
+								<li style='padding-top: 8%;'>"; ?> <?php echo "$sub_user_shit"; ?>
+								<?php 
+									 echo "<ul style='padding-right: 5%; font-size: 15px;'>
 										<li>
-											<a href='profile.php?userId={$_SESSION['name']}'>Profile</a>
+											<a href='profile.php?userId='{$_SESSION['name']}'>Profile</a>
 										</li>
 										<li>
 											<a href='writepost.php'>Write post</a>
