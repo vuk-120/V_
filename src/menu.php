@@ -20,7 +20,7 @@
 								<li>
 								<a href='home.php' style='padding-left: 15%; padding-top: 14%; padding-bottom: 10%;'>V_main
 								<i class='fa fa-caret-down fa-2x' style='padding-left: 5%; padding-top: 10%;'></i></a>
-									<ul style=''>
+									<ul>
 				
 										<li>
 											<a href='home.php?explore=java'>V_java</a>
@@ -33,12 +33,13 @@
 										</li>
 									</ul>
 								</li>
-							</ul> 
+							</ul>
 
 							<ul class='menuRight'>
 								<li style='padding-top: 7%;' id='user_letter'>"; ?> <?php echo "$sub_user_shit"; ?>
-								<?php 
-									 echo "<ul style='padding-right: 5%; font-size: 15px;'>
+								<?php  
+									 echo "
+									<ul style='font-size: 15px;'>
 										<li>
 											<a href='profile.php?userId='{$_SESSION['name']}'>Profile</a>
 										</li>
