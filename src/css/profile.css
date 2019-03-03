@@ -6,8 +6,9 @@ html, body
 }
 
 body .profile_pic {
-    position: relative;
-
+    position: fixed;
+    left: 40%;
+    right: 40%;
 }
 
 body .profile_pic .middle {
