@@ -4,7 +4,7 @@
 					{
 
 						$user_shit = $_SESSION['name'];
-						$sub_user_shit = substr($user_shit, 0, 1);
+						$sub_user_shit = strtoupper(substr($user_shit, 0, 1));
 
 						echo
 						"
@@ -36,7 +36,7 @@
 							</ul> 
 
 							<ul class='menuRight'>
-								<li style='padding-top: 8%;'>"; ?> <?php echo "$sub_user_shit"; ?>
+								<li style='padding-top: 7%;' id='user_letter'>"; ?> <?php echo "$sub_user_shit"; ?>
 								<?php 
 									 echo "<ul style='padding-right: 5%; font-size: 15px;'>
 										<li>
