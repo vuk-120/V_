@@ -1,3 +1,5 @@
-# Title
+# V_.com
 
-## Yolo
+## Everything coding
+
+A site for posting content and sharing ideas.
