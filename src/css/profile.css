@@ -41,8 +41,9 @@ body .profile_pic:hover .middle {
 }
 
 body .profile_pic .middle .text a {
-    color: red;
+    color: black;
     font-size: 16px;
+    font-weight: bold;
 }
 
 body .profile_pic .middle .text a:hover {
