@@ -8,7 +8,7 @@
 
 						echo
 						"
-							<ul class='menuLeft''>
+							<ul class='menuLeft'>
 								<li>
 									<h1>
 										<a href='home.php'>V_</a>
@@ -52,7 +52,7 @@
 										<li>
 											<a href='logOffProcess.php'>Sign out</a>
 										</li>
-									</ul>
+									</u>
 								</li>
 							</ul>
 						";

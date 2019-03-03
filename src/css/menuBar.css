@@ -40,6 +40,16 @@ nav ul li
 	float: left;
 }
 
+nav .menuRight li {
+	float: right;
+	list-style: none;
+	position: relative;
+}
+
+nav .menuRight li a {
+	display: block;
+}
+
 nav ul.menuRight li, nav ul.menuMiddle li
 {
 	margin: 0;
@@ -64,9 +74,13 @@ nav ul h1
 #user_letter {
 	font-weight: bold;
 	font-size: 30px;
-	border-left: solid 1px black;
 	width: 50px;
 	padding-right: 20px;
+}
+
+nav .menuRight li ul {
+	display: none;
+    position: absolute;
 }
 
 nav ul.menuRight li ul li, nav ul.menuMiddle li ul li
@@ -77,31 +91,24 @@ nav ul.menuRight li ul li, nav ul.menuMiddle li ul li
 	color: black;
 }
 
+nav .menuRight li:hover ul li {
+	display: block;
+}
+
+nav .menuRight li ul li {
+	width: 170px;
+}
+
+nav .menuRight > li:last-child:hover ul {
+    left: auto;
+    right: 0;
+    display: block;
+    position: absolute;
+}
+
 nav ul.menuMiddle li:hover ul li {
 	display: block;
 } 
-
-nav .menuRight li:hover {
-	cursor: pointer;
-}
-
-nav .menuRight li:hover ul {
-	cursor: pointer;
-    display: block;
-    margin: 0;
-    position: absolute;
-    left: auto;
-    right: 0;
-}
-
-nav .menuRight li:hover ul li {
-	cursor: pointer;
-    display: block;
-    margin: 0;
-    position: absolute;
-    left: auto;
-    right: 0;
-}
 
 nav .menuRight li ul li:hover, nav .menuMiddle li ul li:hover
 {
