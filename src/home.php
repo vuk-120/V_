@@ -1,6 +1,11 @@
 <?php 
 	session_start();
 	include_once("server.php");
+	
+	if($_SESSION['name'] == "" || $_SESSION['success'] == false)
+	{
+		header("location: index.php");
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,7 +31,7 @@
 			if($first == "explore=AI")
 			{
 				mysqli_set_charset($db, 'utf8');
-				$sql = "SELECT * FROM user, share, post WHERE user.userName=share.userId AND post.id=share.postId AND post.opportunity LIKE 'V_AI'";
+				$sql = "SELECT * FROM user, share, post WHERE user.userName=share.userId AND post.id=share.postId AND post.opportunity LIKE 'V_AI' GROUP BY userId, postId ORDER BY share.date DESC";
 				$result = mysqli_query($db, $sql);
 
 				while($rows = mysqli_fetch_array($result))
@@ -63,7 +68,7 @@
 			else if($first == "explore=java")
 			{
 				mysqli_set_charset($db, 'utf8');
-				$sql = "SELECT * FROM user, share, post WHERE user.userName=share.userId AND post.id=share.postId AND post.opportunity LIKE 'V_java'";
+				$sql = "SELECT * FROM user, share, post WHERE user.userName=share.userId AND post.id=share.postId AND post.opportunity LIKE 'V_java' GROUP BY userId, postId ORDER BY share.date DESC";
 				$result = mysqli_query($db, $sql);
 
 				while($rows = mysqli_fetch_array($result))
@@ -100,7 +105,7 @@
 			else if($first == "explore=python")
 			{
 				mysqli_set_charset($db, 'utf8');
-				$sql = "SELECT * FROM user, share, post WHERE user.userName=share.userId AND post.id=share.postId AND post.opportunity LIKE 'V_python'";
+				$sql = "SELECT * FROM user, share, post WHERE user.userName=share.userId AND post.id=share.postId AND post.opportunity LIKE 'V_python' GROUP BY userId, postId ORDER BY share.date DESC";
 				$result = mysqli_query($db, $sql);
 
 				while($rows = mysqli_fetch_array($result))
@@ -137,7 +142,7 @@
 			else
 			{
 				mysqli_set_charset($db, 'utf8');
-				$sql = "SELECT * FROM user, share, post WHERE user.userName=share.userId AND post.id=share.postId";
+				$sql = "SELECT * FROM user, share, post WHERE user.userName=share.userId AND post.id=share.postId GROUP BY userId, postId ORDER BY share.date DESC";
 				$result = mysqli_query($db, $sql);
 
 				while($rows = mysqli_fetch_array($result))
