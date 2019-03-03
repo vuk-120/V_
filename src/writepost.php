@@ -1,6 +1,11 @@
 <?php 
 	session_start();
 	include("server.php");
+
+	if($_SESSION['name'] == "" || $_SESSION['success'] == false)
+	{
+		header("location: index.php");
+	}
 ?>
 <!DOCTYPE html>
 <html>
