@@ -31,7 +31,7 @@
 			if($first == "explore=AI")
 			{
 				mysqli_set_charset($db, 'utf8');
-				$sql = "SELECT * FROM user, share, post WHERE user.userName=share.userId AND post.id=share.postId AND post.opportunity LIKE 'V_AI' GROUP BY userId, postId ORDER BY share.date DESC";
+				$sql = "SELECT * FROM user, share, post WHERE user.userName=share.userId AND post.id=share.postId AND post.opportunity LIKE 'V_AI'";
 				$result = mysqli_query($db, $sql);
 
 				while($rows = mysqli_fetch_array($result))
@@ -142,7 +142,7 @@
 			else
 			{
 				mysqli_set_charset($db, 'utf8');
-				$sql = "SELECT * FROM user, share, post WHERE user.userName=share.userId AND post.id=share.postId GROUP BY userId, postId ORDER BY share.date DESC";
+				$sql = "SELECT * FROM user, share, post WHERE user.userName=share.userId AND post.id=share.postId GROUP BY share.userId, share.postId ORDER BY share.date DESC";
 				$result = mysqli_query($db, $sql);
 
 				while($rows = mysqli_fetch_array($result))
