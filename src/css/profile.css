@@ -6,9 +6,8 @@ html, body
 }
 
 body .profile_pic {
-    /*position: relative;*/
-    width: 20%;
-    float: center;
+    position: relative;
+
 }
 
 body .profile_pic .middle {
@@ -52,22 +51,21 @@ body .profile_pic .middle .text a:hover {
 
 #custom-button {
     padding: 10px;
-    color: orange;
-    font-family: Ubuntu Mono;
-    background-color: rgba(41,45,59,.2);
-    border: 1px solid white;
-    border-radius: 5px;
+    color: black;
+    font-family: Helvetica;
+    background-color: white;
+    border: 1px solid black;
     cursor: pointer;
 }
 
 #custom-button:hover {
-    background-color: rgb(41,45,59);
+    cursor: pointer;
 }
 
 #custom-text {
     margin-left: 10px;
-    font-family: Ubuntu Mono;
-    color: orange;
+    font-family: Helvetica;
+    color: black;
 }
 
 input[type=submit] {
@@ -79,5 +77,6 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: rgb(41,45,59);
+    background-color: white;
+    border: solid 1px black;
 }

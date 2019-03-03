@@ -1,6 +1,8 @@
 <?php 
 	session_start();
 	include('server.php');
+	include('menu.php');
+    include('footer.php');
 
 	if($_SESSION['name'] == "" || $_SESSION['success'] == false)
 	{
@@ -15,13 +17,11 @@
 	<meta lang="en">
 	<link rel="stylesheet" type="text/css" href="css/profile.css">
 	<link rel="stylesheet" type="text/css" href="css/menuBar.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
 	<?php
-        include_once('server.php');
-        include('menu.php');
-        include('footer.php');
 
         $path = "";
         $name = "";
