@@ -60,7 +60,7 @@ class HomeController extends Controller
 
     public function show($id) {
         $post = Post::where('id', $id)->first();
-
+        
     }
 
     public function showProfile() {

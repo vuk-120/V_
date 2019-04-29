@@ -16,7 +16,6 @@ class AddForeignKeysToShareTable extends Migration {
 		{
 			$table->foreign('email', 'share_ibfk_1')->references('email')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 			$table->foreign('postId', 'share_ibfk_2')->references('id')->on('posts')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-			$table->foreign('commentId', 'share_ibfk_3')->references('id')->on('comments')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 		});
 	}
 

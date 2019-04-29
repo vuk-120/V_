@@ -16,7 +16,6 @@ class CreateShareTable extends Migration {
 		{
 			$table->string('email');
 			$table->integer('postId')->unsigned()->index('postId');
-			$table->integer('commentId')->unsigned()->index('commentId');
 			$table->date('published');
 			$table->timestamps();
 			$table->primary(['email','postId','commentId']);
