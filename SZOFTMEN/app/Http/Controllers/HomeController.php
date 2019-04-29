@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
+use App\Share;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Exception;
+use Illuminate\Database\QueryException;
 
 class HomeController extends Controller
 {
@@ -21,8 +27,36 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        return view('home');
+    public function index() {
+        $posts = Post::all()
+                    ->sortBy('created_at');      
+                    
+        $details = Share::all();
+
+        return view('home', compact('posts'));
+    }
+
+    public function create() {
+        return view('newPost');
+    }
+
+    public function store(Request $request) {
+        $newPost = new Post($request->all());
+
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'text' => 'required',
+            'category' => 'required'
+        ]);
+
+        //shitt
+        try {
+            $newPost->save();
+
+        } catch(Exception $e) {
+            return redirect('home')->with('error', 'Something went wrong!');
+        }
+
+        return redirect('home')->with('status', 'Post published!');
     }
 }
