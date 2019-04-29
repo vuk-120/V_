@@ -13,7 +13,7 @@
 </div>
 @endif
 
-<a href="/home/newPost" class="btn btn-lights btn-block mb-3">New Post</a>
+<a href="/home/newPost" class="btn btn-lights mb-3">New Post</a>
 
 <div class="container">
     <div class="row justify-content-center">
@@ -21,7 +21,7 @@
             @foreach($posts as $post)
             <div class="card mb-3">
                 <div class="card-header">
-                    {{ $post->title }}
+                    {{ $post->title }} in {{ $post->category }}
                 </div>
                 <div class="card-body">
                     <p class="card-text">{{ $post->text }}</p>

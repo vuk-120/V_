@@ -20,3 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/newPost', 'HomeController@create');
 Route::post('saveNewPost', 'HomeController@store');
+Route::get('profile', 'HomeController@showProfile');
+Route::get('/posts/{id}', 'HomeController@show');

@@ -29,9 +29,7 @@ class HomeController extends Controller
      */
     public function index() {
         $posts = Post::all()
-                    ->sortBy('created_at');      
-                    
-        $details = Share::all();
+                    ->sortByDesc('id');      
 
         return view('home', compact('posts'));
     }
@@ -58,5 +56,14 @@ class HomeController extends Controller
         }
 
         return redirect('home')->with('status', 'Post published!');
+    }
+
+    public function show($id) {
+        $post = Post::where('id', $id)->first();
+
+    }
+
+    public function showProfile() {
+        
     }
 }
